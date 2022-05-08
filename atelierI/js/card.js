@@ -29,23 +29,23 @@
 
     ];*/
 
-const GET_CHUCK_URL="https://asi2-backend-market.herokuapp.com/cards"; 
-let context =   {
-                    method: 'GET'
-                };
-    
-fetch(GET_CHUCK_URL,context)
+const GET_URL = "https://asi2-backend-market.herokuapp.com/cards";
+let context = {
+    method: 'GET'
+};
+
+fetch(GET_URL, context)
     .then(response => response.json())
-        .then(response => callback(response))
-        .catch(error => err_callback(error));
+    .then(response => callback(response))
+    .catch(error => err_callback(error));
 
 
-function callback(response){
+function callback(response) {
     console.log(response);
-    affichage(response.value);
+    affichage(response);
 }
 
-function err_callback(error){
+function err_callback(error) {
     console.log(error);
 }
 
@@ -53,26 +53,21 @@ function err_callback(error){
 
 let template = document.querySelector("#selectedCard");
 
-function affichage(cardlist){
-    for(const card of cardlist){
+function affichage(cardlist) {
+    for (const card of cardlist) {
         let clone = document.importNode(template.content, true);
 
-        newContent= clone.firstElementChild.innerHTML
-                    .replace(/{{family_src}}/g, card.family_src)
-                    .replace(/{{family_name}}/g, card.family_name)
-                    .replace(/{{image_src}}/g, card.image_src)
-                    .replace(/{{date}}/g, card.date)
-                    .replace(/{{comment}}/g, card.comment)
-                    .replace(/{{like}}/g, card.like)
-                    .replace(/{{button}}/g, card.button);
-        clone.firstElementChild.innerHTML= newContent;
+        newContent = clone.firstElementChild.innerHTML
+            .replace(/{{family_src}}/g, card.family)
+            .replace(/{{family_name}}/g, card.name)
+            .replace(/{{image_src}}/g, card.imgUrl)
+            .replace(/{{date}}/g, card.date)
+            .replace(/{{comment}}/g, card.comment)
+            .replace(/{{like}}/g, card.like)
+            .replace(/{{button}}/g, card.button);
+        clone.firstElementChild.innerHTML = newContent;
 
-        let cardContainer= document.querySelector("#gridContainer");
+        let cardContainer = document.querySelector("#gridContainer");
         cardContainer.appendChild(clone);
     }
 }
-
-
-
-
-
