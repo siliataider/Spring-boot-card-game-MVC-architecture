@@ -1,4 +1,4 @@
-let cardlist = [
+/*let cardlist = [
         {
             family_src:"https://imgc.allpostersimages.com/img/print/affiches/marvel-super-hero-squad-iron-man-standing_a-G-9448041-4985690.jpg",
             family_name:"Jose",
@@ -27,24 +27,49 @@ let cardlist = [
             button: "Read"
         }
 
-    ];
+    ];*/
+
+const GET_CHUCK_URL="https://asi2-backend-market.herokuapp.com/cards"; 
+let context =   {
+                    method: 'GET'
+                };
+    
+fetch(GET_CHUCK_URL,context)
+    .then(response => response.json())
+        .then(response => callback(response))
+        .catch(error => err_callback(error));
+
+
+function callback(response){
+    console.log(response);
+    affichage(response.value);
+}
+
+function err_callback(error){
+    console.log(error);
+}
+
+
+
 let template = document.querySelector("#selectedCard");
 
-for(const card of cardlist){
-    let clone = document.importNode(template.content, true);
+function affichage(cardlist){
+    for(const card of cardlist){
+        let clone = document.importNode(template.content, true);
 
-    newContent= clone.firstElementChild.innerHTML
-                .replace(/{{family_src}}/g, card.family_src)
-                .replace(/{{family_name}}/g, card.family_name)
-                .replace(/{{image_src}}/g, card.image_src)
-                .replace(/{{date}}/g, card.date)
-                .replace(/{{comment}}/g, card.comment)
-                .replace(/{{like}}/g, card.like)
-                .replace(/{{button}}/g, card.button);
-    clone.firstElementChild.innerHTML= newContent;
+        newContent= clone.firstElementChild.innerHTML
+                    .replace(/{{family_src}}/g, card.family_src)
+                    .replace(/{{family_name}}/g, card.family_name)
+                    .replace(/{{image_src}}/g, card.image_src)
+                    .replace(/{{date}}/g, card.date)
+                    .replace(/{{comment}}/g, card.comment)
+                    .replace(/{{like}}/g, card.like)
+                    .replace(/{{button}}/g, card.button);
+        clone.firstElementChild.innerHTML= newContent;
 
-    let cardContainer= document.querySelector("#gridContainer");
-    cardContainer.appendChild(clone);
+        let cardContainer= document.querySelector("#gridContainer");
+        cardContainer.appendChild(clone);
+    }
 }
 
 
