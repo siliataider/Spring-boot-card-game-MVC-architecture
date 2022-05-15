@@ -5,7 +5,7 @@
 1. TAIDER Silia
 2. BEN SALAH Mariem
 3. Boiteux Baptiste
-4. MESSIE Jean-Louis
+4. MESSIE Louis
 ## Les éléments réalisés du cahier des charges
 1. Architecture __Web Javascript__ + __Web Services Full Rest__
 
