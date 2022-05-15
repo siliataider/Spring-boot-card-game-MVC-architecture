@@ -1,5 +1,9 @@
 # Spring-boot-card-game-ASI-Atelier-II
 
+## Validation de l'architecture de production
+
+![image](https://user-images.githubusercontent.com/69010419/168466922-d5e126da-530b-4d4d-9996-6bf331546a90.png)
+
 ## Membres du groupe
 1. TAIDER Silia
 2. BEN SALAH Mariem
