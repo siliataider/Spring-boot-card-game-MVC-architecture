@@ -22,6 +22,12 @@
 1. Partie utilisateurs et connexion
    * L'authentification n'est pas finie
 2. Partie Market
+   * L'affichage des cartes possédée par l'utilisateur pour les vendre
 
 ## Des éléments éventuels réalisés en plus du cahier des charges
 * Nada
+
+## Elements de la partie cartes : 
+Nous avons choisi d'ignorer l'aspect "échange entre joueurs", les cartes sont soit possédées par un joueur, soit une banque centrale de cartes. Les cartes ont donc un attribut : `Boolean owned` qui permet de savoir si la carte est possédée ou non.
+
+Pour afficher les cartes mises en vente, il suffit donc de parcourir les cartes de la BDD et de récupérer les cartes avec l'attribut `owned = False`.
