@@ -1,0 +1,6 @@
+com/sp/rest/TestRestCrt.class
+com/sp/rest/HeroRestCrt.class
+com/sp/service/HeroService.class
+com/sp/model/Hero.class
+com/sp/repository/HeroRepository.class
+com/sp/SpAppHero.class

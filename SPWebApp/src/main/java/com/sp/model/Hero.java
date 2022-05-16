@@ -13,7 +13,16 @@ public class Hero {
 	private String superPowerName;
 	private int superPowerValue;
 	private String imgUrl;
+	private Boolean owned;
 	
+	public Boolean getOwned() {
+		return owned;
+	}
+
+	public void setOwned(Boolean owned) {
+		this.owned = owned;
+	}
+
 	public Hero() {
 	}
 
@@ -24,6 +33,7 @@ public class Hero {
 		this.superPowerName = superPowerName;
 		this.superPowerValue = superPowerValue;
 		this.imgUrl = imgUrl;
+		this.owned = false;
 	}
 
 
