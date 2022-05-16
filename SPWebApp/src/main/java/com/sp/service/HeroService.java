@@ -25,6 +25,7 @@ public class HeroService {
 	public Hero getHero(int id) {
 		Optional<Hero> hOpt = hRepository.findById(id);
 		if (hOpt.isPresent()) {
+
 			return hOpt.get();
 		}else {
 			return null;

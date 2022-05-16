@@ -17,14 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
       @Autowired
       HeroService hService;
       
-      @RequestMapping("/salut")
-	  	public String sayHello() {
-	  		return "Salut Hero !!!";
-	  	}
       @RequestMapping(method=RequestMethod.POST,value="/hero")
       public void addHero(@RequestBody Hero hero) {
           hService.addHero(hero);
       }
+     
       
       @RequestMapping(method=RequestMethod.GET,value="/hero/{id}")
       public Hero getHero(@PathVariable String id) {
@@ -32,7 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
           return h;
       }
       
-      @RequestMapping(value="/{id}/buy")
+      @RequestMapping(method=RequestMethod.GET,value="/{id}/buy")
       public String getBuyList() {
     	  List<Hero> list = hService.getBuyList();
     	  return(list.toString());
@@ -43,7 +40,7 @@ import org.springframework.beans.factory.annotation.Autowired;
     	  hService.buy(Integer.valueOf(idUser),Integer.valueOf(idCard));
       }
       
-      @RequestMapping(value="/{id}/sell")
+      @RequestMapping(method=RequestMethod.GET,value="/{id}/sell")
       public String getUserList(@PathVariable String idUser,String idCard) {
     	  List<Hero> list = hService.getUserCollection(idUser);
     	  return(list.toString());

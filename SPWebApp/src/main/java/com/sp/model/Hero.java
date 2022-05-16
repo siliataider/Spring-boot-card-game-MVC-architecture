@@ -10,11 +10,16 @@ public class Hero {
 	@GeneratedValue
 	private Integer id;
 	private String name;
-	private String superPowerName;
-	private int superPowerValue;
-	private String imgUrl;
+	private String description;
+	private String family_name;
+	private String img_src;
+	private int hp;
+	private int energy;
+	private int attack;
+	private int defense;
+	private int price;
 	private Boolean owned;
-	private int value;
+
 	
 	public Boolean getOwned() {
 		return owned;
@@ -27,18 +32,21 @@ public class Hero {
 	public Hero() {
 	}
 
-	public Hero(int id,String name, String superPowerName, int superPowerValue, String imgUrl) {
+	public Hero(int id,String family_name, String img_src, String name, String description, int hp, int energy, int attack,int defense) {
 		super();
 		this.id=id;
 		this.name = name;
-		this.superPowerName = superPowerName;
-		this.superPowerValue = superPowerValue;
-		this.imgUrl = imgUrl;
+		this.description=description;
+		this.family_name=family_name;
+		this.img_src=img_src;
+		this.hp=hp;
+		this.energy=energy;
+		this.attack=attack;
+		this.defense=defense;
 		this.owned = false;
-		this.value=50;
+		this.price=50;
 	}
-
-
+	
 	public String getName() {
 		return name;
 	}
@@ -47,30 +55,70 @@ public class Hero {
 		this.name = name;
 	}
 
-	public String getSuperPowerName() {
-		return superPowerName;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setSuperPowerName(String superPowerName) {
-		this.superPowerName = superPowerName;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public int getSuperPowerValue() {
-		return superPowerValue;
+	public String getFamily_name() {
+		return family_name;
 	}
 
-	public void setSuperPowerValue(int superPowerValue) {
-		this.superPowerValue = superPowerValue;
+	public void setFamily_name(String family_name) {
+		this.family_name = family_name;
 	}
 
-	public String getImgUrl() {
-		return imgUrl;
+	public String getImg_src() {
+		return img_src;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setImg_src(String img_src) {
+		this.img_src = img_src;
 	}
-	
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public int getEnergy() {
+		return energy;
+	}
+
+	public void setEnergy(int energy) {
+		this.energy = energy;
+	}
+
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -81,6 +129,6 @@ public class Hero {
 
 	@Override
 	public String toString() {
-		return "HERO ["+this.id+"]: name:"+this.name+", superPowerName:"+this.superPowerName+", superPowerValue:"+this.superPowerValue+" imgUrl:"+this.imgUrl;
+		return "HERO ["+this.id+"]: name:"+this.name+", familyName:"+this.family_name+", price:"+this.price+" imgUrl:"+this.img_src;
 	}
 }
