@@ -14,6 +14,7 @@ public class Hero {
 	private int superPowerValue;
 	private String imgUrl;
 	private Boolean owned;
+	private int value;
 	
 	public Boolean getOwned() {
 		return owned;
@@ -34,6 +35,7 @@ public class Hero {
 		this.superPowerValue = superPowerValue;
 		this.imgUrl = imgUrl;
 		this.owned = false;
+		this.value=50;
 	}
 
 

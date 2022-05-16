@@ -34,12 +34,24 @@ import org.springframework.beans.factory.annotation.Autowired;
       
       @RequestMapping(value="/{id}/buy")
       public String getBuyList() {
-    	  List<Hero> h = hService.getBuyList();
-    	  return(h.toString());
+    	  List<Hero> list = hService.getBuyList();
+    	  return(list.toString());
       }
       
-      @RequestMapping(method=RequestMethod.PATCH,value="/{id}/buy")
+      @RequestMapping(method=RequestMethod.PUT,value="/{id}/buy")
       public void buy(@PathVariable String idUser,String idCard) {
-    	  Boolean result= hService.buy(Integer.valueOf(idUser),Integer.valueOf(idCard));
+    	  hService.buy(Integer.valueOf(idUser),Integer.valueOf(idCard));
       }
+      
+      @RequestMapping(value="/{id}/sell")
+      public String getUserList(@PathVariable String idUser,String idCard) {
+    	  List<Hero> list = hService.getUserCollection(idUser);
+    	  return(list.toString());
+      }
+      
+      @RequestMapping(method=RequestMethod.PUT,value="/{id}/sell")
+      public void sell(@PathVariable String idUser,String idCard) {
+    	  hService.sell(Integer.valueOf(idUser),Integer.valueOf(idCard));
+      }
+      
   }

@@ -15,6 +15,8 @@ public class HeroService {
 	@Autowired
 	HeroRepository hRepository;
 	//UserService uService;
+	
+	
 	public void addHero(Hero h) {
 		Hero createdHero=hRepository.save(h);
 		System.out.println(createdHero);
@@ -29,6 +31,11 @@ public class HeroService {
 		}
 	}
 	
+	public List<Hero> getUserCollection(String idUser){
+		List<Hero> userCollection = null; //userService.getCards();	
+		return(userCollection);
+	}
+	
 	public List<Hero> getBuyList(){
 		List<Hero> buyList =  new LinkedList<Hero>();
 		Iterable<Hero> cardIt = hRepository.findAll();
@@ -41,20 +48,25 @@ public class HeroService {
 		
 		return(buyList);
 	}
-	
-	public List<Hero> getUserCollection(String idUser){
-		List<Hero> userCollection = new LinkedList<Hero>();		
-		return(userCollection);
-	}
 
 
-	public Boolean buy(Integer idUser, Integer idCard) {
-		Optional<Hero> optionalCard = hRepository.findById(idCard);
-		Hero card = optionalCard.get();
+	public void buy(Integer idUser, Integer idCard) {
+		Hero card = getHero(idCard);
 		card.setOwned(true);
 		//userService.addCard(card);
-		return null;
+		//userService.transaction(-card.getValue())
 	}
+	
+	public void sell(Integer idUser, Integer idCard) {
+		Hero card = getHero(idCard);
+		card.setOwned(false);
+		//userService.removeCard(card);
+		//userService.transaction(+card.getValue())
+		
+	}
+	
+	
+	
 
 }
 
