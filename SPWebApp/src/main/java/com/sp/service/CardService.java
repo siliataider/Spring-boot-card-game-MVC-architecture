@@ -37,11 +37,11 @@ public class CardService {
 		return(userCollection);
 	}
 	
-	public List<Card> getBuyList(){
+	public List<Card> getBuyList(int idUser){
 		List<Card> buyList =  new LinkedList<Card>();
 		Iterable<Card> cardIt = hRepository.findAll();
 		cardIt.forEach((card) -> {
-									if(card.getId_user() != 0){
+									if(card.getId_user() == idUser){
 										buyList.add(card);
 										}
 								}

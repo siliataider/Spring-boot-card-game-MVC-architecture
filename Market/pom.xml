@@ -4,18 +4,18 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tuto.springboot</groupId>
-	<artifactId>SPWebApp</artifactId>
+	<artifactId>market</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.7.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-
-	<name>SPWebApp</name>
+	
+	<name>market</name>
 	<description>Project Sample for using Springboot</description>
 
 	<properties>
@@ -23,13 +23,6 @@
 	</properties>
 
 	<dependencies>
-
-		<dependency>
-			<groupId>com.tuto.springboot</groupId>
-			<artifactId>DTO</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,10 +38,6 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.postgresql</groupId> -->
-		<!-- <artifactId>postgresql</artifactId> -->
-		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,11 +49,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.boot</groupId> -->
-		<!-- <artifactId>spring-boot-starter-thymeleaf</artifactId> -->
-		<!-- </dependency> -->
-
+		<dependency>
+			<groupId>com.tuto.springboot</groupId>
+			<artifactId>DTO</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
