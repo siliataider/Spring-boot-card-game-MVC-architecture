@@ -1,1 +1,4 @@
-/.vcode
+.metadata/
+.settings/
+.project
+.classpath

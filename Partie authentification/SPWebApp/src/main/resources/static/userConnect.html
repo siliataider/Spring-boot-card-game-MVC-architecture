@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Welcome</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+		<div th:replace="fragments/header :: header">
+		<h1> Header par defaut dans userConnect.html</h1>
+	</div>
+	<form th:action="@{/user}"
+         th:object="${userForm}" method="POST">
+		<fieldset >
+			<legend >Login! </legend>
+			<div >
+				<label  for="form-surname">Surname</label>
+				<div >
+					<input  id="form-surname" type="text"
+						placeholder="User Surname..." th:field="*{surname}">
+				</div>
+				<label  for="form-password">Password</label>
+				<div >
+					<input id="form-password" type="password"
+						placeholder="User Password..." th:field="*{password}">
+				</div>
+			</div>
+			<div >
+				<input type="submit"  class="uk-button uk-button-default" value="Connect" />
+				<button type="reset" value="Reset">Reset</button>
+			</div>
+
+		</fieldset>
+	</form>
+
+</body>
+
+</html>
