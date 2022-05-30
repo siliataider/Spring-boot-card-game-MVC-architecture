@@ -11,8 +11,6 @@ function handleSubmit(){
 
 
 }
-//cette ligne est nulle 
-sendCard(data);
 
 function sendCard(data){
 
