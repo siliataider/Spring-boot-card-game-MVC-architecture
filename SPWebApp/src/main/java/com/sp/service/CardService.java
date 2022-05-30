@@ -32,16 +32,25 @@ public class CardService {
 		}
 	}
 	
-	public List<Card> getUserCollection(String idUser){
-		List<Card> userCollection = null; //userService.getCards();	
-		return(userCollection);
+	public List<Card> getSellList(int idUser){
+		List<Card> buyList =  new LinkedList<Card>();
+		Iterable<Card> cardIt = hRepository.findAll();
+		cardIt.forEach((card) -> {
+									if(card.getId_user() == idUser){
+										buyList.add(card);
+										}
+								}
+		);
+		
+		return(buyList);
 	}
+	
 	
 	public List<Card> getBuyList(int idUser){
 		List<Card> buyList =  new LinkedList<Card>();
 		Iterable<Card> cardIt = hRepository.findAll();
 		cardIt.forEach((card) -> {
-									if(card.getId_user() == idUser){
+									if(card.getId_user() == 0){
 										buyList.add(card);
 										}
 								}
