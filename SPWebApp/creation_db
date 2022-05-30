@@ -4,7 +4,3 @@ docker exec -it db7b6e222655 bash
 su postgres && psql && create database test;
 psql
 create DATABASE test
-
-
-bonsoir le test
-
