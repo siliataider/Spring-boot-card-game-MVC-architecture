@@ -12,7 +12,9 @@ public class DTO_Card {
 	private int attack;
 	private int defense;
 	private int price;
-	
+	private int id_user;
+
+
 	public DTO_Card() {
 	}
 
@@ -30,7 +32,19 @@ public class DTO_Card {
 		this.price=price;
 		this.affinity=affinity;
 	}
+	
+	public DTO_Card(int id,int id_user) {
+		this.id = id;
+		this.id_user = id_user;
+	}
+	
+	public int getId() {
+		return id;
+	}
 
+	public int getId_user() {
+		return id_user;
+	}
 	public String getName() {
 		return name;
 	}
