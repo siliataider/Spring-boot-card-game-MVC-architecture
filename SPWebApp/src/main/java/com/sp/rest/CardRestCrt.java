@@ -55,7 +55,7 @@ public class CardRestCrt {
     	  return(result);
       }
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/buy")
+	@RequestMapping(method = RequestMethod.PATCH, value = "/buy")
 	public void buy(@PathVariable String idUser, String idCard) {
 		hService.buy(Integer.valueOf(idUser), Integer.valueOf(idCard));
 	}
@@ -66,7 +66,7 @@ public class CardRestCrt {
 		return (list.toString());
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/sell")
+	@RequestMapping(method = RequestMethod.PATCH, value = "/sell")
 	public void sell(@PathVariable String idUser, String idCard) {
 		hService.sell(Integer.valueOf(idUser), Integer.valueOf(idCard));
 	}

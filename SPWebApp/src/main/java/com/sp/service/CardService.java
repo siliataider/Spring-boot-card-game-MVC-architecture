@@ -54,16 +54,11 @@ public class CardService {
 	public void buy(Integer idUser, Integer idCard) {
 		Card card = getCard(idCard);
 		card.setId_user(idUser);
-		//userService.addCard(card);
-		//userService.transaction(-card.getValue())
 	}
 	
 	public void sell(Integer idUser, Integer idCard) {
 		Card card = getCard(idCard);
-		card.setId_user(idUser);
-		//userService.removeCard(card);
-		//userService.transaction(+card.getValue())
-		
+		card.setId_user(0);
 	}
 	
 	

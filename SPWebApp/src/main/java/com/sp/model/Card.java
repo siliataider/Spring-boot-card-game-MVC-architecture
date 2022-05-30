@@ -37,7 +37,7 @@ public class Card {
 		this.energy=energy;
 		this.attack=attack;
 		this.defense=defense;
-		this.id_user=(Integer) null;
+		this.id_user=0;
 		this.price=50;
 		this.affinity=affinity;
 	}

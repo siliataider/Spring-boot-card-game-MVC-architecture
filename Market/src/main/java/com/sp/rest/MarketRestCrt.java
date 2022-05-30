@@ -21,4 +21,19 @@ public class MarketRestCrt {
      public DTO_Card[] getBuyList(@RequestBody String id) {
         return hService.getBuyList();
      }
+	 
+	 @RequestMapping(method=RequestMethod.GET, value="/sell")
+	 public DTO_Card[] getSellList(@RequestBody String id) {
+		 return hService.getSellList();
+	 }
+	 
+	 @RequestMapping(method=RequestMethod.PUT, value="/buy")
+	 public void buy(@RequestBody String id,@RequestBody String id_user) {
+		 hService.buy(Integer.valueOf(id),Integer.valueOf(id_user));
+	 }
+	 
+	 @RequestMapping(method=RequestMethod.PUT, value="/sell")
+	 public void sell(@RequestBody String id_user,@RequestBody String id) {
+		 hService.sell(Integer.valueOf(id),Integer.valueOf(id_user));
+	 }
 }
