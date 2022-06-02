@@ -28,13 +28,13 @@ public class MarketRestCrt {
 		 return hService.getSellList(idUser);
 	 }
 	 
-	 @RequestMapping(method=RequestMethod.PATCH, value="/buy")
-	 public void buy(@RequestBody String id,@RequestBody String id_user) {
-		 hService.buy(Integer.valueOf(id),Integer.valueOf(id_user));
+	 @RequestMapping(method=RequestMethod.POST, value="/buy/{id_card}")
+	 public void buy(@PathVariable String id_card,@RequestBody String id_user) {
+		 hService.buy(id_user,id_card);
 	 }
 	 
-	 @RequestMapping(method=RequestMethod.PATCH, value="/sell")
-	 public void sell(@RequestBody String id_user,@RequestBody String id) {
-		 hService.sell(Integer.valueOf(id),Integer.valueOf(id_user));
+	 @RequestMapping(method=RequestMethod.POST, value="/sell/{id_card}")
+	 public void sell(@PathVariable String id_card,@RequestBody String id_user) {
+		 hService.sell(id_user,id_card);
 	 }
 }

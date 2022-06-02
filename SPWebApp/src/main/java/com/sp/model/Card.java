@@ -48,6 +48,7 @@ public class Card {
 
 	public void setId_user(int id_user) {
 		this.id_user = id_user;
+		System.out.println(this.toString());
 	}
 	
 	public String getName() {
@@ -132,7 +133,7 @@ public class Card {
 
 	@Override
 	public String toString() {
-		return "HERO ["+this.id+"]: name:"+this.name+", familyName:"+this.family_name+", price:"+this.price+" imgUrl:"+this.img_src;
+		return "HERO ["+this.id+"]: name:"+this.name+", familyName:"+this.family_name+", price:"+this.price+" Owner:" + this.id_user;
 	}
 
 	public String getAffinity() {

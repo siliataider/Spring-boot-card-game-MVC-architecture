@@ -30,20 +30,12 @@ public class MarketService {
 		return response.getBody();
 	}
 
-	public void buy(int id,int id_user) {
-		Boolean response
-        = new RestTemplate().patchForObject("http://localhost:8080/buy", new DTO_Card(id,id_user), Boolean.class);
-		if(response) {
-			
-		}
+	public void buy(String id_user,String id_card) {
+		new RestTemplate().postForEntity("http://localhost:8081/buy/"+ id_user +"/"+id_card, new DTO_Card(Integer.valueOf(id_card),Integer.valueOf(id_user)), Boolean.class);
 	}
 
-	public void sell(int id,int id_user) {
-		Boolean response
-        = new RestTemplate().patchForObject("http://localhost:8080/sell/"+ Integer.toString(id_user) +"/"+Integer.toString(id), new DTO_Card(id,id_user), Boolean.class);
-		if(response) {
-			
-		}
+	public void sell(String id_user,String id_card) {
+		new RestTemplate().postForEntity("http://localhost:8081/sell/"+ id_user +"/"+id_card, new DTO_Card(Integer.valueOf(id_card),Integer.valueOf(id_user)), Boolean.class);
 	}
 	
 	
