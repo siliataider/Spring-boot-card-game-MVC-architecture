@@ -17,8 +17,9 @@ public class MarketRestCrt {
 	@Autowired
     MarketService hService;
 	
-	 @RequestMapping(method=RequestMethod.GET,value="/buy")
-     public DTO_Card[] getBuyList(@RequestBody String idUser) {
+	 @CrossOrigin
+	 @RequestMapping(method=RequestMethod.GET,value="/buy/{idUser}")
+     public DTO_Card[] getBuyList(@PathVariable String idUser) {
         return hService.getBuyList(idUser);
      }
 	 
