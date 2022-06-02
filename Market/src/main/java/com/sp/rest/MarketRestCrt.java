@@ -18,13 +18,13 @@ public class MarketRestCrt {
     MarketService hService;
 	
 	 @RequestMapping(method=RequestMethod.GET,value="/buy")
-     public DTO_Card[] getBuyList(@RequestBody String id) {
-        return hService.getBuyList();
+     public DTO_Card[] getBuyList(@RequestBody String idUser) {
+        return hService.getBuyList(idUser);
      }
 	 
 	 @RequestMapping(method=RequestMethod.GET, value="/sell")
-	 public DTO_Card[] getSellList(@RequestBody String id) {
-		 return hService.getSellList(Integer.valueOf(id));
+	 public DTO_Card[] getSellList(@RequestBody String idUser) {
+		 return hService.getSellList(idUser);
 	 }
 	 
 	 @RequestMapping(method=RequestMethod.PATCH, value="/buy")

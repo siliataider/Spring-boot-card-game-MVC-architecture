@@ -42,8 +42,8 @@ public class CardRestCrt {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/buy/{id_user}")
-      public DTO_Card[] getBuyList(@PathVariable String idUser) {
-    	  List<Card> list = hService.getBuyList(Integer.valueOf(idUser));
+      public DTO_Card[] getBuyList(@PathVariable String id_user) {
+    	  List<Card> list = hService.getBuyList(Integer.valueOf(id_user));
     	  ListIterator<Card> it = list.listIterator();
     	  DTO_Card[] result = new DTO_Card[list.size()];
     	  int i = 0;
@@ -53,18 +53,11 @@ public class CardRestCrt {
     		  i++;
     	  }
     	  return(result);
-      }
-
-	@RequestMapping(method = RequestMethod.PATCH, value = "/buy")
-	public void buy(@PathVariable String idUser, String idCard) {
-		hService.buy(Integer.valueOf(idUser), Integer.valueOf(idCard));
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/sell/{id_user}")
-	public DTO_Card[] getUserList(@PathVariable String idUser) {
-		System.out.println("jusqu'ici tout va bien");
+	@RequestMapping(method = RequestMethod.GET, value = "/sell/{idUser}")
+	public DTO_Card[] getSellList(@PathVariable String idUser) {
 		  List<Card> list = hService.getSellList(Integer.valueOf(idUser));
-			System.out.println("ici aussi");
 	  	  ListIterator<Card> it = list.listIterator();
 	  	  DTO_Card[] result = new DTO_Card[list.size()];
 	  	  int i = 0;
@@ -73,9 +66,14 @@ public class CardRestCrt {
 	  		  result[i]=new DTO_Card(current.getId(),current.getPrice(),current.getFamily_name(),current.getImg_src(),current.getName(),current.getDescription(),current.getHp(),current.getEnergy(),current.getAttack(),current.getDefense(),current.getAffinity());
 	  		  i++;
 	  	  }
-	  	System.out.println("c'est pas moi c'est l'autre");
 	  	  return(result);
 	}
+	
+	@RequestMapping(method = RequestMethod.PATCH, value = "/buy")
+	public void buy(@PathVariable String idUser, String idCard) {
+		hService.buy(Integer.valueOf(idUser), Integer.valueOf(idCard));
+	}
+	
 
 	@RequestMapping(method = RequestMethod.PATCH, value = "/sell")
 	public void sell(@PathVariable String idUser, String idCard) {

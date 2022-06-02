@@ -16,17 +16,17 @@ import antlr.collections.List;
 @Service
 public class MarketService {
 	
-	public DTO_Card[] getBuyList() {
+	public DTO_Card[] getBuyList(String idUser) {
 		ResponseEntity<DTO_Card[]> response
         = new RestTemplate().getForEntity(
-            "http://localhost:8081/buy", DTO_Card[].class);
+            "http://localhost:8081/buy/"+idUser, DTO_Card[].class);
 		return response.getBody();
 	}
 	
-	public DTO_Card[] getSellList(int id_user) {
+	public DTO_Card[] getSellList(String idUser) {
 		ResponseEntity<DTO_Card[]> response
         = new RestTemplate().getForEntity(
-            "http://localhost:8081/sell/"+ Integer.toString(id_user), DTO_Card[].class);
+            "http://localhost:8081/sell/"+idUser, DTO_Card[].class);
 		return response.getBody();
 	}
 
