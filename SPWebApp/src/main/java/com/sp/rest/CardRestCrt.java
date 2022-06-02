@@ -41,9 +41,9 @@ public class CardRestCrt {
 		h.setId_user(Integer.valueOf(id));
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/buy")
-      public DTO_Card[] getBuyList(@RequestBody String id) {
-    	  List<Card> list = hService.getBuyList(Integer.valueOf(id));
+	@RequestMapping(method=RequestMethod.GET,value="/buy/{id_user}")
+      public DTO_Card[] getBuyList(@PathVariable String idUser) {
+    	  List<Card> list = hService.getBuyList(Integer.valueOf(idUser));
     	  ListIterator<Card> it = list.listIterator();
     	  DTO_Card[] result = new DTO_Card[list.size()];
     	  int i = 0;
@@ -60,10 +60,21 @@ public class CardRestCrt {
 		hService.buy(Integer.valueOf(idUser), Integer.valueOf(idCard));
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/sell")
-	public String getUserList(@PathVariable String idUser, String idCard) {
-		List<Card> list = hService.getUserCollection(idUser);
-		return (list.toString());
+	@RequestMapping(method = RequestMethod.GET, value = "/sell/{id_user}")
+	public DTO_Card[] getUserList(@PathVariable String idUser) {
+		System.out.println("jusqu'ici tout va bien");
+		  List<Card> list = hService.getSellList(Integer.valueOf(idUser));
+			System.out.println("ici aussi");
+	  	  ListIterator<Card> it = list.listIterator();
+	  	  DTO_Card[] result = new DTO_Card[list.size()];
+	  	  int i = 0;
+	  	  while(it.hasNext()){
+	  		  Card current=(Card) it.next();
+	  		  result[i]=new DTO_Card(current.getId(),current.getPrice(),current.getFamily_name(),current.getImg_src(),current.getName(),current.getDescription(),current.getHp(),current.getEnergy(),current.getAttack(),current.getDefense(),current.getAffinity());
+	  		  i++;
+	  	  }
+	  	System.out.println("c'est pas moi c'est l'autre");
+	  	  return(result);
 	}
 
 	@RequestMapping(method = RequestMethod.PATCH, value = "/sell")

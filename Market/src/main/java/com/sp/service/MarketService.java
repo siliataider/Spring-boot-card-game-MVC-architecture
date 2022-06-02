@@ -19,14 +19,14 @@ public class MarketService {
 	public DTO_Card[] getBuyList() {
 		ResponseEntity<DTO_Card[]> response
         = new RestTemplate().getForEntity(
-            "http://localhost:8080/buy", DTO_Card[].class);
+            "http://localhost:8081/buy", DTO_Card[].class);
 		return response.getBody();
 	}
 	
-	public DTO_Card[] getSellList() {
+	public DTO_Card[] getSellList(int id_user) {
 		ResponseEntity<DTO_Card[]> response
         = new RestTemplate().getForEntity(
-            "http://localhost:8080/sell", DTO_Card[].class);
+            "http://localhost:8081/sell/"+ Integer.toString(id_user), DTO_Card[].class);
 		return response.getBody();
 	}
 
@@ -40,7 +40,7 @@ public class MarketService {
 
 	public void sell(int id,int id_user) {
 		Boolean response
-        = new RestTemplate().patchForObject("http://localhost:8080/sell", new DTO_Card(id,id_user), Boolean.class);
+        = new RestTemplate().patchForObject("http://localhost:8080/sell/"+ Integer.toString(id_user) +"/"+Integer.toString(id), new DTO_Card(id,id_user), Boolean.class);
 		if(response) {
 			
 		}
