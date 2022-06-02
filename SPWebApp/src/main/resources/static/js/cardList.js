@@ -1,12 +1,12 @@
-function getCardList(idUser){
+function getCardList(){
     console.log("je rentre dans la fonction");
-    const GET_URL="localhost:/8082/buy/1"; 
+    const GET_URL="http://localhost:8081/card/card/1"; 
     let context =   {
                         method: 'GET',
                     };
         
     fetch(GET_URL,context)
-            .then(response => callback(response))
+            .then(response => console.log(response.value))
             .catch(error => err_callback(error));
 }
 
@@ -36,7 +36,7 @@ function err_callback(error){
     console.log(error);
 }
 
-getCardList(1)
+getCardList()
 
 let template = document.querySelector("#row");
 
