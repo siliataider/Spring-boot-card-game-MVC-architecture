@@ -14,7 +14,7 @@ function handleSubmit(){
 
 function sendCard(data){
 
-    const POST_URL="http://localhost:8080/hero"; 
+    const GET_URL="http://localhost:8081/hero"; 
     let context =   {
                         method: 'POST',
                         headers: {
