@@ -62,12 +62,17 @@ public class CardService {
 
 	public void buy(Integer idUser, Integer idCard) {
 		Card card = getCard(idCard);
+		hRepository.delete(card);
 		card.setId_user(idUser);
+		addCard(card);
+
 	}
 	
 	public void sell(Integer idUser, Integer idCard) {
 		Card card = getCard(idCard);
+		hRepository.delete(card);
 		card.setId_user(0);
+		addCard(card);
 	}
 	
 	

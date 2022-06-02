@@ -1,5 +1,6 @@
 package com.sp.rest;
 
+import java.io.Console;
 import java.lang.reflect.Array;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -69,14 +70,17 @@ public class CardRestCrt {
 	  	  return(result);
 	}
 	
-	@RequestMapping(method = RequestMethod.PATCH, value = "/buy")
-	public void buy(@PathVariable String idUser, String idCard) {
+	@RequestMapping(method = RequestMethod.POST, value = "/buy/{idUser}/{idCard}")
+	public void buy(@PathVariable String idUser,@PathVariable String idCard) {
 		hService.buy(Integer.valueOf(idUser), Integer.valueOf(idCard));
+		System.out.println(idUser);
+		System.out.println(idCard);
+
 	}
 	
 
-	@RequestMapping(method = RequestMethod.PATCH, value = "/sell")
-	public void sell(@PathVariable String idUser, String idCard) {
+	@RequestMapping(method = RequestMethod.POST, value = "/sell/{idUser}/{idCard}")
+	public void sell(@PathVariable String idUser,@PathVariable String idCard) {
 		hService.sell(Integer.valueOf(idUser), Integer.valueOf(idCard));
 	}
 
