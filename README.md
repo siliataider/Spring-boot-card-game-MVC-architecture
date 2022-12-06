@@ -1,6 +1,6 @@
 # ASI1-Visual-Content
 
-# Spring-boot-card-game-ASI-Atelier-II
+# Springboot - Card-game - MVC architecture
 
 lien du github : https://github.com/siliataider/Spring-boot-card-game-ASI-Atelier-II.git
 
